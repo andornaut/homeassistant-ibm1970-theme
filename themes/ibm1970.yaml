@@ -12,6 +12,7 @@ ibm1970:
   sidebar-icon-color: 'var(--sidebar-text-color)'
   sidebar-selected-icon-color: 'var(--primary-text-color)'
   sidebar-selected-text-color: 'var(--primary-text-color)'
+  state-cover-active-color: 'var(--state-active-color)'
   state-icon-active-color: '#d0b550'
   switch-unchecked-button-color: 'var(--scrollbar-thumb-color)'
   switch-unchecked-track-color: 'var(--scrollbar-thumb-color)'
