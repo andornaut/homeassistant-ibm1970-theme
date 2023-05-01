@@ -3,7 +3,7 @@
 ibm1970:
   accent-color: '#33a999'
   app-header-background-color: 'var(--sidebar-background-color)'
-  app-header-edit-background-color: 'var(--accent-color)'
+  app-header-edit-background-color: '#006B6B'
   app-header-text-color: 'var(--sidebar-text-color)'
   disabled-text-color: '#999'
   label-badge-green: 'var(--accent-color)'
