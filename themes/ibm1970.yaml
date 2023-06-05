@@ -14,6 +14,7 @@ ibm1970:
   sidebar-selected-text-color: 'var(--primary-text-color)'
   state-cover-active-color: 'var(--state-active-color)'
   state-icon-active-color: '#d0b550'
+  state-icon-color: 'var(--secondary-text-color)'
   switch-unchecked-button-color: 'var(--scrollbar-thumb-color)'
   switch-unchecked-track-color: 'var(--scrollbar-thumb-color)'
   text-primary-color: 'var(--card-background-color)'
@@ -30,7 +31,6 @@ ibm1970:
       secondary-text-color: '#9c9977'
       sidebar-background-color: '#7c7755'
       sidebar-text-color: '#24201a'
-      state-icon-color: 'var(--primary-background-color)'
     light:
       card-background-color: '#dddccc'
       divider-color: 'var(--primary-color)'
@@ -42,4 +42,3 @@ ibm1970:
       secondary-text-color: '#646050'
       sidebar-background-color: '#ccc8b0'
       sidebar-text-color: 'var(--primary-color)'
-      state-icon-color: 'var(--primary-color)'
