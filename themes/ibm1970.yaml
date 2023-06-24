@@ -24,7 +24,7 @@ ibm1970:
       divider-color: "#24201a"
       error-color: "#d55"
       mdc-theme-on-secondary: "var(--card-background-color)"
-      primary-background-color: "#464333"
+      primary-background-color: "#423f2e"
       primary-color: "#ccc8b0"
       primary-text-color: "#eeeccc"
       secondary-background-color: "#9c9977"
