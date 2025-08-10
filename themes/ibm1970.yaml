@@ -1,44 +1,100 @@
-# CSS variables
-# https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts
+# IBM1970 Theme - An IBM and 1970s inspired theme
+# Based on: https://github.com/andornaut/ibm1970-desktop-theme
 ibm1970:
-  accent-color: "#33a999"
   app-header-background-color: "var(--sidebar-background-color)"
-  app-header-edit-background-color: "#006B6B"
+  app-header-edit-background-color: "var(--accent-color)"
   app-header-text-color: "var(--sidebar-text-color)"
-  disabled-text-color: "#999"
+  ha-color-on-primary-normal: "var(--ha-color-primary-80)"
   label-badge-green: "var(--accent-color)"
-  light-primary-color: "#eeeccc"
   scrollbar-thumb-color: "var(--sidebar-background-color)"
   sidebar-icon-color: "var(--sidebar-text-color)"
   sidebar-selected-icon-color: "var(--primary-text-color)"
   sidebar-selected-text-color: "var(--primary-text-color)"
-  state-cover-active-color: "var(--state-active-color)"
-  state-icon-active-color: "#d0b550"
   state-icon-color: "var(--secondary-text-color)"
+  state-cover-active-color: "var(--amber-color)"
   switch-unchecked-button-color: "var(--scrollbar-thumb-color)"
   switch-unchecked-track-color: "var(--scrollbar-thumb-color)"
   text-primary-color: "var(--card-background-color)"
   modes:
     dark:
-      card-background-color: "#646050"
-      divider-color: "#24201a"
-      error-color: "#d55"
-      mdc-theme-on-secondary: "var(--card-background-color)"
-      primary-background-color: "#423f2e"
-      primary-color: "#ccc8b0"
-      primary-text-color: "#eeeccc"
-      secondary-background-color: "#9c9977"
-      secondary-text-color: "#9c9977"
+      # Core colors
+      accent-color: "#33a999" # Signature teal
+      primary-color: "#ccc8b0" # Warm beige
+      disabled-text-color: "#999"
+
+      # HA color scale (warm palette)
+      ha-color-primary-05: "#1a1710"
+      ha-color-primary-10: "#24201a"
+      ha-color-primary-20: "#2e2a1f"
+      ha-color-primary-30: "#373424"
+      ha-color-primary-40: "#423f2e"
+      ha-color-primary-50: "#646050"
+      ha-color-primary-60: "#7c7755"
+      ha-color-primary-70: "#9c9977"
+      ha-color-primary-80: "#b8b599"
+      ha-color-primary-90: "#dddccc"
+      ha-color-primary-95: "#eeeccc"
+
+      # WebAwesome button colors
+      wa-color-on-normal: "var(--primary-text-color)"
+      wa-color-fill-normal: "#ccc8b0"
+      wa-color-neutral-on-normal: "var(--primary-text-color)"
+      wa-color-neutral-fill-normal: "#ccc8b0"
+
+      # Background hierarchy
+      primary-background-color: "#423f2e" # Main background
+      card-background-color: "#646050" # Card surfaces
+      secondary-background-color: "#9c9977" # Alternative areas
+
+      # Text colors
+      primary-text-color: "#eeeccc" # Main text
+      secondary-text-color: "#9c9977" # Secondary text
+
+      # Sidebar
       sidebar-background-color: "#7c7755"
       sidebar-text-color: "#24201a"
+
+      # States
+      amber-color: "#d5dd88" # Lighter and more yellow
+      error-color: "#d55"
     light:
-      card-background-color: "#dddccc"
-      divider-color: "var(--primary-color)"
-      error-color: "#b11"
-      primary-background-color: "#eed"
-      primary-color: "#646050"
-      primary-text-color: "#24201a"
+      # Core colors
+      accent-color: "#33a999" # Keep teal accent
+      primary-color: "#646050" # Darker for contrast
+      disabled-text-color: "#666"
+
+      # HA color scale (inverted for light mode)
+      ha-color-primary-05: "#eeeccc"
+      ha-color-primary-10: "#dddccc"
+      ha-color-primary-20: "#ccc8b0"
+      ha-color-primary-30: "#b8b599"
+      ha-color-primary-40: "#9c9977"
+      ha-color-primary-50: "#7c7755"
+      ha-color-primary-60: "#646050"
+      ha-color-primary-70: "#423f2e"
+      ha-color-primary-80: "#373424"
+      ha-color-primary-90: "#2e2a1f"
+      ha-color-primary-95: "#24201a"
+
+      # WebAwesome button colors
+      wa-color-on-normal: "var(--primary-text-color)"
+      wa-color-fill-normal: "#646050"
+      wa-color-neutral-on-normal: "var(--primary-text-color)"
+      wa-color-neutral-fill-normal: "#646050"
+
+      # Background hierarchy
+      primary-background-color: "#eed" # Light cream
+      card-background-color: "#dddccc" # Card surfaces
       secondary-background-color: "var(--card-background-color)"
-      secondary-text-color: "#646050"
+
+      # Text colors
+      primary-text-color: "#24201a" # Dark text
+      secondary-text-color: "#646050" # Medium brown
+
+      # Sidebar
       sidebar-background-color: "#ccc8b0"
       sidebar-text-color: "var(--primary-color)"
+
+      # States
+      amber-color: "#b5bd68" # Original with yellower tone for light mode
+      error-color: "#b11"
