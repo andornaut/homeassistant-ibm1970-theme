@@ -20,8 +20,8 @@ ibm1970:
   # WebAwesome button colors
   wa-color-on-normal: "var(--primary-text-color)"
   wa-color-fill-normal: "var(--primary-color)"
-  wa-color-neutral-on-normal: "var(--primary-text-color)"
-  wa-color-neutral-fill-normal: "var(--primary-color)"
+  wa-color-neutral-on-normal: "var(--secondary-text-color)"
+  wa-color-neutral-fill-normal: "var(--secondary-background-color)"
 
   modes:
     dark:
@@ -32,22 +32,22 @@ ibm1970:
 
       # HA color scale
       ha-color-on-primary-normal: "var(--ha-color-primary-95)" # The default is 60, which is too low contrast
-      ha-color-primary-05: "#1a1710"
-      ha-color-primary-10: "#24201a"
-      ha-color-primary-20: "#2e2a1f"
-      ha-color-primary-30: "#373424"
-      ha-color-primary-40: "#423f2e"
-      ha-color-primary-50: "#646050"
-      ha-color-primary-60: "#7c7755"
-      ha-color-primary-70: "#9c9977"
-      ha-color-primary-80: "#b8b599"
+      ha-color-primary-05: "#24201a"
+      ha-color-primary-10: "#2e2a1f"
+      ha-color-primary-20: "#373424"
+      ha-color-primary-30: "#423f2e"
+      ha-color-primary-40: "#646050"
+      ha-color-primary-50: "#7c7755"
+      ha-color-primary-60: "#9c9977"
+      ha-color-primary-70: "#b8b599"
+      ha-color-primary-80: "#ccc8b0"
       ha-color-primary-90: "#dddccc"
       ha-color-primary-95: "#eed"
 
       # Background hierarchy
       primary-background-color: "#423f2e" # Main background
       card-background-color: "#646050" # Card surfaces
-      secondary-background-color: "#9c9977" # Alternative areas
+      secondary-background-color: "#373424" # Alternative areas
 
       # Text colors
       primary-text-color: "#eed"
@@ -81,16 +81,16 @@ ibm1970:
       ha-color-primary-95: "#24201a"
 
       # Background hierarchy
-      primary-background-color: "#eed" # Main background
-      card-background-color: "#dddccc" # Card surfaces
-      secondary-background-color: "#b8b599" # Alternative areas
+      primary-background-color: "#ccc8b0" # Main background
+      card-background-color: "#b8b599" # Card surfaces
+      secondary-background-color: "#eed" # Alternative areas
 
       # Text colors
       primary-text-color: "#423f2e"
       secondary-text-color: "#7c7755"
 
       # Sidebar
-      sidebar-background-color: "#ccc8b0"
+      sidebar-background-color: "#9c9977"
       sidebar-text-color: "#2e2a1f"
 
       # States
