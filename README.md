@@ -16,3 +16,9 @@ Copy [`./themes/ibm1970.yaml`](./themes/ibm1970.yaml) to `${HomeAssistant}/confi
 See
 [ansible-role-homeassistant-frigate](https://github.com/andornaut/ansible-role-homeassistant-frigate)
 for an example of the installation procedure.
+
+## Reference
+
+- [HA theming variables (wiki)](https://github.com/home-assistant/frontend/wiki/%5BWIP%5D-Supported-Theming-Variables)
+- [HA theming variables (community)](https://community.home-assistant.io/t/full-list-of-theme-yaml-lines/162199)
+- [HA theme color system (source)](https://github.com/home-assistant/frontend/tree/dev/src/resources/theme/color)
