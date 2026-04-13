@@ -2,18 +2,21 @@
 # Based on: https://github.com/andornaut/ibm1970-desktop-theme
 # See: https://github.com/home-assistant/frontend/tree/dev/src/resources/theme/color
 ibm1970:
+  accent-color: "#33a999" # Teal
   app-header-background-color: "var(--sidebar-background-color)"
   app-header-edit-background-color: "#b05533"
   app-header-text-color: "var(--sidebar-text-color)"
   ha-color-fill-primary-normal-resting: "var(--secondary-text-color)"
   label-badge-green: "var(--accent-color)"
+  primary-color: "var(--ha-color-primary-80)"
   scrollbar-thumb-color: "var(--sidebar-background-color)"
   sidebar-icon-color: "var(--sidebar-text-color)"
   sidebar-selected-icon-color: "var(--primary-text-color)"
   sidebar-selected-text-color: "var(--primary-text-color)"
   state-icon-color: "var(--secondary-text-color)"
   state-cover-active-color: "var(--amber-color)"
-  switch-unchecked-button-color: "var(--secondary-text-color)"
+  switch-checked-track-color: "var(--disabled-color)"
+  switch-unchecked-button-color: "var(--scrollbar-thumb-color)"
   switch-unchecked-track-color: "var(--scrollbar-thumb-color)"
   text-primary-color: "var(--card-background-color)"
 
@@ -26,9 +29,7 @@ ibm1970:
   modes:
     dark:
       # Core colors
-      accent-color: "#33a999" # Teal
-      primary-color: "#7c7755" # vscode button.background
-      disabled-color: "#545040"
+      disabled-color: "#9c9977"
       disabled-text-color: "#7c7755"
 
       # HA color scale
@@ -40,10 +41,10 @@ ibm1970:
       ha-color-primary-40: "#545040"
       ha-color-primary-50: "#7c7755"
       ha-color-primary-60: "#9c9977"
-      ha-color-primary-70: "#b2af93"
-      ha-color-primary-80: "#c7c6b0"
-      ha-color-primary-90: "#dddccc"
-      ha-color-primary-95: "#e8e7da"
+      ha-color-primary-70: "#afac8f"
+      ha-color-primary-80: "#c1bfa8"
+      ha-color-primary-90: "#d4d2c0"
+      ha-color-primary-95: "#dddccc"
 
       # Background hierarchy
       primary-background-color: "#423f2e" # Main background
@@ -61,39 +62,44 @@ ibm1970:
       # States
       amber-color: "#fdd93c"
       error-color: "#d30102"
+
+      switch-checked-button-color: "var(--ha-color-primary-80)"
     light:
       # Core colors
-      accent-color: "#33a999" # Teal
-      primary-color: "#7c7755"
-      disabled-text-color: "#666"
+      #      primary-color: "#7c7755" # vscode button.background
+      disabled-color: "#646050"
+      disabled-text-color: "#9c9977"
 
-      # HA color scale
+      # HA color scale (mirror of dark)
       ha-color-on-primary-normal: "var(--ha-color-primary-05)" # The default is 40, which is too low contrast
-      ha-color-primary-05: "#eed"
-      ha-color-primary-10: "#dddccc"
-      ha-color-primary-20: "#ccc8b0"
-      ha-color-primary-30: "#b8b599"
+      ha-color-primary-05: "#dddccc"
+      ha-color-primary-10: "#d4d2c0"
+      ha-color-primary-20: "#c1bfa8"
+      ha-color-primary-30: "#afac8f"
       ha-color-primary-40: "#9c9977"
       ha-color-primary-50: "#7c7755"
-      ha-color-primary-60: "#646050"
+      ha-color-primary-60: "#545040"
       ha-color-primary-70: "#423f2e"
       ha-color-primary-80: "#373424"
-      ha-color-primary-90: "#2e2a1f"
+      ha-color-primary-90: "#2d2a1f"
       ha-color-primary-95: "#24201a"
 
       # Background hierarchy
-      primary-background-color: "#ccc8b0" # Main background
-      card-background-color: "#b8b599" # Card surfaces
-      secondary-background-color: "#eed" # Alternative areas
+      primary-background-color: "#c1bfa8" # Main background
+      card-background-color: "#afac8f" # Card surfaces
+      secondary-background-color: "#dddccc" # Alternative areas
 
       # Text colors
-      primary-text-color: "#423f2e"
-      secondary-text-color: "#7c7755"
+      primary-text-color: "#373424"
+      secondary-text-color: "#545040"
 
       # Sidebar
       sidebar-background-color: "#9c9977"
-      sidebar-text-color: "#2e2a1f"
+      sidebar-text-color: "#423f2e"
 
       # States
       amber-color: "#fdd93c"
-      error-color: "#b11"
+      error-color: "#d30102"
+
+      ha-color-on-disabled-quiet: "var(--ha-color-primary-40)"
+      switch-checked-button-color: "var(--ha-color-primary-50)"
