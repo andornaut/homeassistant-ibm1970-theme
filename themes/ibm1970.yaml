@@ -3,7 +3,7 @@
 # See: https://github.com/home-assistant/frontend/tree/dev/src/resources/theme/color
 ibm1970:
   app-header-background-color: "var(--sidebar-background-color)"
-  app-header-edit-background-color: "var(--accent-color)"
+  app-header-edit-background-color: "#b05533"
   app-header-text-color: "var(--sidebar-text-color)"
   ha-color-fill-primary-normal-resting: "var(--secondary-text-color)"
   label-badge-green: "var(--accent-color)"
@@ -13,7 +13,7 @@ ibm1970:
   sidebar-selected-text-color: "var(--primary-text-color)"
   state-icon-color: "var(--secondary-text-color)"
   state-cover-active-color: "var(--amber-color)"
-  switch-unchecked-button-color: "var(--scrollbar-thumb-color)"
+  switch-unchecked-button-color: "var(--secondary-text-color)"
   switch-unchecked-track-color: "var(--scrollbar-thumb-color)"
   text-primary-color: "var(--card-background-color)"
 
@@ -27,30 +27,31 @@ ibm1970:
     dark:
       # Core colors
       accent-color: "#33a999" # Teal
-      primary-color: "#ccc8b0"
-      disabled-text-color: "#999"
+      primary-color: "#7c7755" # vscode button.background
+      disabled-color: "#545040"
+      disabled-text-color: "#7c7755"
 
       # HA color scale
       ha-color-on-primary-normal: "var(--ha-color-primary-95)" # The default is 60, which is too low contrast
       ha-color-primary-05: "#24201a"
-      ha-color-primary-10: "#2e2a1f"
+      ha-color-primary-10: "#2d2a1f"
       ha-color-primary-20: "#373424"
       ha-color-primary-30: "#423f2e"
-      ha-color-primary-40: "#646050"
+      ha-color-primary-40: "#545040"
       ha-color-primary-50: "#7c7755"
       ha-color-primary-60: "#9c9977"
-      ha-color-primary-70: "#b8b599"
-      ha-color-primary-80: "#ccc8b0"
+      ha-color-primary-70: "#b2af93"
+      ha-color-primary-80: "#c7c6b0"
       ha-color-primary-90: "#dddccc"
-      ha-color-primary-95: "#eed"
+      ha-color-primary-95: "#e8e7da"
 
       # Background hierarchy
       primary-background-color: "#423f2e" # Main background
-      card-background-color: "#646050" # Card surfaces
+      card-background-color: "#545040" # Card surfaces
       secondary-background-color: "#373424" # Alternative areas
 
       # Text colors
-      primary-text-color: "#eed"
+      primary-text-color: "#dddccc"
       secondary-text-color: "#9c9977"
 
       # Sidebar
@@ -59,7 +60,7 @@ ibm1970:
 
       # States
       amber-color: "#fdd93c"
-      error-color: "#d55"
+      error-color: "#d30102"
     light:
       # Core colors
       accent-color: "#33a999" # Teal
