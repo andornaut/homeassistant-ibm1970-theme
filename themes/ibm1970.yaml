@@ -63,7 +63,9 @@ ibm1970:
       amber-color: "#fdd93c"
       error-color: "#d30102"
 
+      # Un-mirrored styles
       switch-checked-button-color: "var(--ha-color-primary-80)"
+
     light:
       # Core colors
       #      primary-color: "#7c7755" # vscode button.background
@@ -101,5 +103,6 @@ ibm1970:
       amber-color: "#fdd93c"
       error-color: "#d30102"
 
+      # Un-mirrored styles
       ha-color-on-disabled-quiet: "var(--ha-color-primary-40)"
       switch-checked-button-color: "var(--ha-color-primary-50)"
