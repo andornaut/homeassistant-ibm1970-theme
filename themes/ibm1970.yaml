@@ -20,6 +20,12 @@ ibm1970:
   switch-unchecked-track-color: "var(--scrollbar-thumb-color)"
   text-primary-color: "var(--card-background-color)"
 
+  ha-color-neutral-05: "var(--ha-color-primary-05)"
+  ha-color-neutral-10: "var(--ha-color-primary-30)"
+  ha-color-neutral-60: "var(--ha-color-primary-60)"
+  ha-color-neutral-90: "var(--ha-color-primary-80)"
+  ha-color-neutral-95: "var(--ha-color-primary-95)"
+
   # WebAwesome button colors
   wa-color-on-normal: "var(--primary-text-color)"
   wa-color-fill-normal: "var(--primary-color)"
