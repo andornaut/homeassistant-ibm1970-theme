@@ -20,12 +20,6 @@ ibm1970:
   switch-unchecked-track-color: "var(--scrollbar-thumb-color)"
   text-primary-color: "var(--card-background-color)"
 
-  ha-color-neutral-05: "var(--ha-color-primary-05)"
-  ha-color-neutral-10: "var(--ha-color-primary-30)"
-  ha-color-neutral-60: "var(--ha-color-primary-60)"
-  ha-color-neutral-90: "var(--ha-color-primary-80)"
-  ha-color-neutral-95: "var(--ha-color-primary-95)"
-
   # WebAwesome button colors
   wa-color-on-normal: "var(--primary-text-color)"
   wa-color-fill-normal: "var(--primary-color)"
@@ -52,6 +46,18 @@ ibm1970:
       ha-color-primary-90: "#d4d2c0"
       ha-color-primary-95: "#dddccc"
 
+      ha-color-neutral-05: "var(--ha-color-primary-05)"
+      ha-color-neutral-10: "var(--ha-color-primary-30)"
+      ha-color-neutral-20: "var(--ha-color-primary-40)" # Interpolated
+      ha-color-neutral-30: "var(--ha-color-primary-40)" # Interpolated
+      ha-color-neutral-40: "var(--ha-color-primary-50)" # Interpolated
+      ha-color-neutral-50: "var(--ha-color-primary-50)" # Interpolated
+      ha-color-neutral-60: "var(--ha-color-primary-60)"
+      ha-color-neutral-70: "var(--ha-color-primary-70)" # Interpolated
+      ha-color-neutral-80: "var(--ha-color-primary-70)" # Interpolated
+      ha-color-neutral-90: "var(--ha-color-primary-80)"
+      ha-color-neutral-95: "var(--ha-color-primary-95)"
+
       # Background hierarchy
       primary-background-color: "#423f2e" # Main background
       card-background-color: "#545040" # Card surfaces
@@ -69,8 +75,10 @@ ibm1970:
       amber-color: "#fdd93c"
       error-color: "#d30102"
 
-      # Un-mirrored styles
+      # Widgets
       switch-checked-button-color: "var(--ha-color-primary-80)"
+
+      # Un-mirrored styles
 
     light:
       # Core colors
@@ -92,6 +100,18 @@ ibm1970:
       ha-color-primary-90: "#2d2a1f"
       ha-color-primary-95: "#24201a"
 
+      ha-color-neutral-05: "var(--ha-color-primary-05)"
+      ha-color-neutral-10: "var(--ha-color-primary-30)"
+      ha-color-neutral-20: "var(--ha-color-primary-40)" # Interpolated
+      ha-color-neutral-30: "var(--ha-color-primary-40)" # Interpolated
+      ha-color-neutral-40: "var(--ha-color-primary-40)" # Interpolated
+      ha-color-neutral-50: "var(--ha-color-primary-50)" # Interpolated
+      ha-color-neutral-60: "var(--ha-color-primary-50)"
+      ha-color-neutral-70: "var(--ha-color-primary-50)" # Interpolated
+      ha-color-neutral-80: "var(--ha-color-primary-60)" # Interpolated
+      ha-color-neutral-90: "var(--ha-color-primary-60)"
+      ha-color-neutral-95: "var(--ha-color-primary-80)"
+
       # Background hierarchy
       primary-background-color: "#c1bfa8" # Main background
       card-background-color: "#afac8f" # Card surfaces
@@ -109,6 +129,12 @@ ibm1970:
       amber-color: "#fdd93c"
       error-color: "#d30102"
 
-      # Un-mirrored styles
-      ha-color-on-disabled-quiet: "var(--ha-color-primary-40)"
+      # Widgets
+      ha-color-fill-disabled-quiet-resting: "var(--ha-color-neutral-70)"
       switch-checked-button-color: "var(--ha-color-primary-50)"
+
+      # Un-mirrored styles
+      ha-color-form-background: "var(--ha-color-neutral-10)" # Avoid being too close to the fg color
+      ha-color-form-background-hover: "var(--ha-color-neutral-05)"
+      ha-color-on-disabled-quiet: "var(--ha-color-primary-40)"
+      codemirror-def: "#373424" # Avoid being the same as bg color
