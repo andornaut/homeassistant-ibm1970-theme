@@ -82,11 +82,11 @@ ibm1970:
 
     light:
       # Core colors
-      #      primary-color: "#7c7755" # vscode button.background
+      # primary-color: "#7c7755" # vscode button.background
       disabled-color: "#646050"
       disabled-text-color: "#9c9977"
 
-      # HA color scale (mirror of dark)
+      # HA color scale
       ha-color-on-primary-normal: "var(--ha-color-primary-05)" # The default is 40, which is too low contrast
       ha-color-primary-05: "#dddccc"
       ha-color-primary-10: "#d4d2c0"
