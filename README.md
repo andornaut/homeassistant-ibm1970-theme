@@ -1,5 +1,8 @@
 # Home Assistant IBM1970 Theme
 
+[![CI](https://github.com/andornaut/homeassistant-ibm1970-theme/actions/workflows/ai-attributions.yml/badge.svg)](https://github.com/andornaut/homeassistant-ibm1970-theme/actions/workflows/ai-attributions.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 An IBM and 1970s inspired dark and light color theme for
 [Home Assistant](https://www.home-assistant.io/).
 
