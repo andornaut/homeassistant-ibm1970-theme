@@ -1,0 +1,85 @@
+name: Test
+
+# Every branch, not just main and pull requests: work lands on main directly as
+# often as it arrives through one, so a check that only runs on main is a check
+# that runs after the fact.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Keyed on the branch rather than the ref, so a re-push to one branch cancels
+# its own earlier run and not another branch's. Keyed by the event as well: a
+# cancelled run leaves its check runs on the head commit, and GitHub counts
+# those against the required checks, so a push and its pull request cancelling
+# each other would block the merge.
+# Qualified by the repository the branch lives in, since a fork names its
+# branches itself: two pull requests from different forks would otherwise share
+# a group whenever they pick the same branch name.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.head.repo.full_name || github.repository }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+
+      # Pinned in the gate rather than taken from the runner image, so a PyYAML
+      # release cannot turn this red on a commit that did not touch the theme.
+      - name: Install PyYAML
+        run: pip install pyyaml==6.0.3
+
+      # The theme is the whole of what this repository ships, and nothing reads
+      # it until Home Assistant loads it, so a bad indent surfaces there rather
+      # than here.
+      #
+      # Syntax only: what the variable names mean is the frontend's, and holding
+      # a copy of its list here would drift from it.
+      #
+      # Duplicate keys are rejected, which plain safe_load allows: the later
+      # entry silently replaces the earlier one, and a theme that sets one
+      # variable twice loads clean while one of the two values never applies.
+      #
+      # Every tracked YAML outside .github/, so a second theme is covered
+      # without anyone remembering to add it here.
+      - name: Check that every theme is valid YAML
+        run: |
+          git ls-files -z '*.yml' '*.yaml' ':!:.github/**' |
+            xargs -0 python3 -c '
+          import sys, yaml
+
+          class Loader(yaml.SafeLoader):
+              pass
+
+          def mapping(loader, node, deep=False):
+              seen, out = set(), {}
+              for kn, vn in node.value:
+                  k = loader.construct_object(kn, deep=deep)
+                  if k in seen:
+                      raise SystemExit(f"{path}:{kn.start_mark.line + 1}: duplicate key {k!r}")
+                  seen.add(k)
+                  out[k] = loader.construct_object(vn, deep=deep)
+              return out
+
+          Loader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, mapping)
+
+          for path in sys.argv[1:]:
+              print(path)
+              with open(path) as f:
+                  yaml.load(f, Loader=Loader)
+          '
