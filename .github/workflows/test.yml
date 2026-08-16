@@ -46,10 +46,11 @@ jobs:
         with:
           python-version-file: .python-version
 
-      # Pinned in the gate rather than taken from the runner image, so a PyYAML
-      # release cannot turn this red on a commit that did not touch the theme.
-      - name: Install PyYAML
-        run: pip install pyyaml==6.0.3
+      # Pinned in a manifest rather than installed by name, so Dependabot can
+      # see the version and a PyYAML release cannot turn this red on a commit
+      # that did not touch the theme.
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
 
       # The theme is the whole of what this repository ships, and nothing reads
       # it until Home Assistant loads it, so a bad indent surfaces there rather

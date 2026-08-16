@@ -1,5 +1,13 @@
 version: 2
 updates:
+  # requirements-dev.txt holds the lint gate's tooling. Nothing here is
+  # installed by Home Assistant: the theme is YAML it reads at load time.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
