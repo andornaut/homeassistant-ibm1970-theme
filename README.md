@@ -19,3 +19,15 @@ Copy [`./themes/ibm1970.yaml`](./themes/ibm1970.yaml) to `${HomeAssistant}/confi
 See
 [ansible-ctrl homeautomation role](https://github.com/andornaut/ansible-ctrl/tree/main/roles/homeautomation)
 for an example of the installation procedure.
+
+## Development
+
+Make and Docker run the project-owned checks in `tests/container/`. Verification
+mounts only a read-only source snapshot and scratch storage.
+
+```bash
+make check
+make check-info
+```
+
+The full gate runs the declared lint checks. No test suite or build is declared.
