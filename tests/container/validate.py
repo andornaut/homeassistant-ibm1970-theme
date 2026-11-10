@@ -21,14 +21,14 @@ def mapping(loader, node, deep=False):
 
 
 Loader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, mapping)
-files = sorted(
-    path
-    for path in Path(".").rglob("*")
-    if path.suffix in (".yaml", ".yml") and ".github" not in path.parts
-)
+files = sorted(path for path in Path().rglob("*") if path.suffix in (".yaml", ".yml") and ".github" not in path.parts)
 if not files:
     raise SystemExit("no YAML files matched: the gate checked nothing")
 for path in files:
     print(path)
     with path.open() as source:
-        yaml.load(source, Loader=Loader)
+        loader = Loader(source)
+        try:
+            loader.get_single_data()
+        finally:
+            loader.dispose()

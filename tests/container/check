@@ -11,6 +11,8 @@ case "$category" in
         ;;
     lint)
         shellcheck -x -P SCRIPTDIR tests/container/run tests/container/check
+        ruff check .
+        ruff format --check .
         python tests/container/validate.py
         markdownlint-cli2
         ;;

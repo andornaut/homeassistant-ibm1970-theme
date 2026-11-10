@@ -3,3 +3,4 @@
 # ecosystem, which it only reads from a manifest: pinned in the workflow
 # instead, this pin would never be offered one.
 PyYAML==6.0.3
+ruff==0.17.3
