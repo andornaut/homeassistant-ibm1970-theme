@@ -37,72 +37,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7.0.1
         with:
-          # Nothing in this job uses the token, so it is not left
-          # in .git/config for a later step to read.
           persist-credentials: false
 
-      - name: Set up Python
-        uses: actions/setup-python@v7.1.0
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v5.7.0
         with:
-          python-version-file: .python-version
+          version: v29.9.3
 
-      # Pinned in a manifest rather than installed by name, so Dependabot can
-      # see the version and a PyYAML release cannot turn this red on a commit
-      # that did not touch the theme.
-      - name: Install dependencies
-        run: pip install -r requirements-dev.txt
-
-      # The theme is the whole of what this repository ships, and nothing reads
-      # it until Home Assistant loads it, so a bad indent surfaces there rather
-      # than here.
-      #
-      # Syntax only: what the variable names mean is the frontend's, and holding
-      # a copy of its list here would drift from it.
-      #
-      # Duplicate keys are rejected, which plain safe_load allows: the later
-      # entry silently replaces the earlier one, and a theme that sets one
-      # variable twice loads clean while one of the two values never applies.
-      #
-      # Every tracked YAML outside .github/, so a second theme is covered
-      # without anyone remembering to add it here.
-      - name: Check that every theme is valid YAML
-        run: |
-          git ls-files -z '*.yml' '*.yaml' ':!:.github/**' |
-            xargs -0 python3 -c '
-          import sys, yaml
-
-          class Loader(yaml.SafeLoader):
-              pass
-
-          def mapping(loader, node, deep=False):
-              seen, out = set(), {}
-              for kn, vn in node.value:
-                  k = loader.construct_object(kn, deep=deep)
-                  if k in seen:
-                      raise SystemExit(f"{path}:{kn.start_mark.line + 1}: duplicate key {k!r}")
-                  seen.add(k)
-                  out[k] = loader.construct_object(vn, deep=deep)
-              return out
-
-          Loader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, mapping)
-
-          if not sys.argv[1:]:
-              raise SystemExit("no YAML files matched: the gate checked nothing")
-
-          for path in sys.argv[1:]:
-              print(path)
-              with open(path) as f:
-                  yaml.load(f, Loader=Loader)
-          '
-
-      # The action bundles markdownlint-cli2, so its own tag is the tool pin and
-      # Dependabot proposes the bump through the github-actions ecosystem. It
-      # fetches nothing at run time, so a slow host cannot turn this red.
-      - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@v25.0.0
-        with:
-          # Empty on purpose. The action defaults this to `*.{md,markdown}`,
-          # which is the repository root only, and anything passed here outranks
-          # the `globs` in .markdownlint-cli2.yaml. Empty leaves the config file
-          # deciding, so this gate and a local `markdownlint-cli2` read one list.
-          globs: ""
+      - name: Run lint
+        run: make lint

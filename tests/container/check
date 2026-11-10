@@ -10,6 +10,7 @@ case "$category" in
         done
         ;;
     lint)
+        shellcheck -x -P SCRIPTDIR tests/container/run tests/container/check
         python tests/container/validate.py
         markdownlint-cli2
         ;;
@@ -29,7 +30,7 @@ PYENV
         else
             python -m venv /scratch/venv
         fi
-        export VIRTUAL_ENV=/scratch/venv PATH=/scratch/venv/bin:$PATH
+        export VIRTUAL_ENV=/scratch/venv PATH="/scratch/venv/bin:${PATH}"
         if [ "$#" -gt 0 ]; then
             exec "$@"
         fi
