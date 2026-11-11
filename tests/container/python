@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+export VIRTUAL_ENV=/scratch/venv PATH="/scratch/venv/bin:$PATH"
+case "$1" in
+    prepare)
+        python -m venv /scratch/venv >&2
+        /scratch/venv/bin/python -m pip install --disable-pip-version-check -r requirements-dev.txt >&2
+        exec tar --create --file - --directory / scratch/venv
+        ;;
+    check)
+        exec sh "$0" lint
+        ;;
+    lint)
+        for script in tests/container/run tests/container/stock tests/container/check-stock; do bash -n "$script"; done
+        for script in tests/container/check tests/container/python tests/container/markdown; do sh -n "$script"; done
+        ruff check .
+        ruff format --check .
+        python tests/container/validate.py
+        ;;
+    *) exit 2 ;;
+esac
