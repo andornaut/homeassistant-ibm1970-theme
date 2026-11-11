@@ -1,6 +1,0 @@
-tests/container/Dockerfile
-tests/container/check
-tests/container/package.json
-tests/container/package-lock.json
-requirements-dev.txt
-tests/container/validate.py
