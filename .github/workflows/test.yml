@@ -67,11 +67,9 @@ jobs:
             exit 125
           fi
           stock_image native_image "python:$(cat .python-version)"
-          stock_prepare "${native_image}" native -- sh -ec 'python -m venv /scratch/venv >&2
+          STOCK_NETWORK=bridge stock_run "${native_image}" -- sh -ec 'python -m venv /scratch/venv >&2
           /scratch/venv/bin/python -m pip install --disable-pip-version-check -r requirements-dev.txt >&2
-          tar --create --file - --directory / scratch/venv
-          '
-          stock_run "${native_image}" native -- sh -ec 'export VIRTUAL_ENV=/scratch/venv PATH="/scratch/venv/bin:$PATH"
+          export VIRTUAL_ENV=/scratch/venv PATH="/scratch/venv/bin:$PATH"
           for script in tests/container/stock tests/container/check-stock; do bash -n "$script"; done
           for script in tests/container/python tests/container/markdown; do sh -n "$script"; done
           ruff check .
@@ -108,12 +106,11 @@ jobs:
             exit 125
           fi
           stock_image markdown_image node:24.22.2
-          stock_prepare "${markdown_image}" markdown -- sh -ec 'mkdir -p /scratch/markdown
+          STOCK_NETWORK=bridge stock_run "${markdown_image}" -- sh -ec 'mkdir -p /scratch/markdown
           cp tests/container/package.json tests/container/package-lock.json /scratch/markdown/
           npm ci --prefix /scratch/markdown --ignore-scripts --no-audit --no-fund --maxsockets=1 >&2
-          tar --create --file - --directory / scratch/markdown
+          exec /scratch/markdown/node_modules/.bin/markdownlint-cli2
           '
-          stock_run "${markdown_image}" markdown -- /scratch/markdown/node_modules/.bin/markdownlint-cli2
           stock_finish
 
       - name: Lint shell scripts

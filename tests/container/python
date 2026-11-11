@@ -1,21 +1,17 @@
 #!/bin/sh
 set -eu
+action=${1:?Expected a declared check action}
+case "$action" in check|lint) ;; *) exit 2 ;; esac
+export PYTHONPYCACHEPREFIX=/scratch/pycache
+if [ "$action" = check ] || [ "$action" = lint ]; then
+    for script in tests/container/stock tests/container/check-stock; do bash -n "$script"; done
+    for script in tests/container/python tests/container/markdown; do sh -n "$script"; done
+fi
+python -m venv /scratch/venv >&2
 export VIRTUAL_ENV=/scratch/venv PATH="/scratch/venv/bin:$PATH"
-case "$1" in
-    prepare)
-        python -m venv /scratch/venv >&2
-        /scratch/venv/bin/python -m pip install --disable-pip-version-check -r requirements-dev.txt >&2
-        exec tar --create --file - --directory / scratch/venv
-        ;;
-    check)
-        exec sh "$0" lint
-        ;;
-    lint)
-        for script in tests/container/stock tests/container/check-stock; do bash -n "$script"; done
-        for script in tests/container/python tests/container/markdown; do sh -n "$script"; done
-        ruff check .
-        ruff format --check .
-        python tests/container/validate.py
-        ;;
-    *) exit 2 ;;
-esac
+python -m pip install --disable-pip-version-check -r requirements-dev.txt >&2
+if [ "$action" = check ] || [ "$action" = lint ]; then
+    ruff check .
+    ruff format --check .
+    python tests/container/validate.py
+fi
